@@ -1,0 +1,1420 @@
+/* ==========================================================================
+   Decolar Consórcios — blog.css
+   Estilos dedicados para a central editorial do Blog Decolar e páginas de artigos
+   ========================================================================== */
+
+/* Contém a largura das áreas editoriais do Blog em telas grandes (o
+   container global vai até 1720px e em 1920px os grids/cards ficavam
+   largos demais). 1320px preserva 1366x768 sem alteração (nessa largura
+   o container já rendeiza a ~1302px, abaixo deste teto) e evita o
+   crescimento exagerado em 1920x1080+. */
+.blog-hero .container,
+.blog-categories-bar .container,
+.blog-featured-section .container,
+.blog-recent-section .container,
+.blog-market-section .container,
+.blog-cta-section .container {
+  max-width: 1320px;
+}
+
+/* --------------------------------------------------------------------------
+   Hero Editorial
+   -------------------------------------------------------------------------- */
+.blog-hero {
+  position: relative;
+  background:
+    radial-gradient(ellipse 60% 40% at 85% 15%, rgba(240, 68, 46, 0.05) 0%, transparent 70%),
+    radial-gradient(ellipse 50% 30% at 15% 85%, rgba(255, 122, 26, 0.04) 0%, transparent 60%),
+    linear-gradient(180deg, #fcfbfa 0%, var(--color-gray-50) 100%);
+  border-bottom: 1px solid var(--color-gray-200);
+  padding-block: clamp(40px, 5.5vw, 68px);
+  overflow: hidden;
+}
+
+.blog-hero-inner {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: 860px;
+  margin-inline: auto;
+}
+
+.blog-hero-grid {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  align-items: center;
+  gap: clamp(32px, 5vw, 64px);
+}
+
+.blog-hero-col {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.blog-hero-col .blog-hero-title,
+.blog-hero-col .blog-hero-lead {
+  text-align: left;
+}
+
+.blog-hero-col .blog-search-container {
+  margin-inline: 0;
+}
+
+/* --------------------------------------------------------------------------
+   Micro-pillars do Hero
+   -------------------------------------------------------------------------- */
+.blog-hero-pillars {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  margin-top: 26px;
+  padding: 0;
+  list-style: none;
+  flex-wrap: wrap;
+}
+
+.blog-hero-pillar {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--color-gray-700);
+}
+
+.blog-hero-pillar svg {
+  width: 17px;
+  height: 17px;
+  color: var(--color-red);
+  flex-shrink: 0;
+}
+
+/* --------------------------------------------------------------------------
+   Painel Editorial do Hero (CSS — sem imagens reaproveitadas)
+   -------------------------------------------------------------------------- */
+.blog-hero-visual {
+  position: relative;
+  min-height: 460px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.blog-hero-visual-card {
+  position: absolute;
+  border-radius: var(--radius-lg);
+}
+
+.blog-hero-visual-card--back {
+  inset: 7% 8% 4% 12%;
+  background: var(--gradient-primary);
+  transform: rotate(3.3deg);
+  box-shadow: 0 20px 44px rgba(20, 18, 22, 0.12);
+}
+
+/* Sem "bottom" definido: a altura nasce do próprio conteúdo (auto),
+   em vez de ser forçada por um encaixe top+bottom fixo — é isso que
+   evitava o item 03 aparecer cortado na base do painel. */
+.blog-hero-visual-card--front {
+  top: 2%;
+  right: 12%;
+  left: 2%;
+  bottom: auto;
+  background: var(--color-white);
+  border: 1px solid var(--color-gray-200);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 18px;
+  padding: clamp(26px, 3vw, 34px) clamp(26px, 3vw, 34px) clamp(30px, 3.6vw, 40px);
+  box-shadow: 0 24px 50px rgba(20, 18, 22, 0.1);
+}
+
+.blog-hero-panel-eyebrow {
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-red);
+  position: relative;
+  padding-bottom: 15px;
+}
+
+.blog-hero-panel-eyebrow::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 32px;
+  height: 2px;
+  background: var(--gradient-primary);
+}
+
+.blog-hero-panel-title {
+  font-family: 'Manrope', sans-serif;
+  font-size: clamp(1.7rem, 2.4vw, 2.15rem);
+  font-weight: 800;
+  line-height: 1.18;
+  letter-spacing: -0.01em;
+  color: var(--color-text);
+}
+
+.blog-hero-panel-list {
+  list-style: none;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.blog-hero-panel-item {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding-block: 11px;
+  border-top: 1px solid var(--color-gray-200);
+}
+
+.blog-hero-panel-item:first-child {
+  border-top: 1px solid var(--color-gray-200);
+}
+
+.blog-hero-panel-number {
+  font-family: 'Manrope', sans-serif;
+  font-size: 1.7rem;
+  font-weight: 800;
+  line-height: 1;
+  color: var(--color-gray-200);
+  flex-shrink: 0;
+  width: 34px;
+  transition: color var(--transition-base);
+}
+
+.blog-hero-panel-item:hover .blog-hero-panel-number {
+  color: var(--color-red);
+}
+
+.blog-hero-panel-item-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.blog-hero-panel-item-text strong {
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.94rem;
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.blog-hero-panel-item-text span {
+  font-size: 0.79rem;
+  color: var(--color-gray-700);
+  line-height: 1.38;
+}
+
+.blog-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-red);
+  background: rgba(240, 68, 46, 0.08);
+  border: 1px solid rgba(240, 68, 46, 0.2);
+  padding: 5px 14px;
+  border-radius: 999px;
+  margin-bottom: 16px;
+}
+
+.blog-hero-title {
+  font-family: 'Manrope', sans-serif;
+  font-size: clamp(2.1rem, 4vw, 3.4rem);
+  font-weight: 800;
+  line-height: 1.15;
+  color: var(--color-text);
+  letter-spacing: -0.02em;
+}
+
+.blog-hero-lead {
+  font-size: clamp(1rem, 1.3vw, 1.18rem);
+  line-height: 1.6;
+  color: var(--color-gray-700);
+  max-width: 680px;
+  margin-top: 14px;
+}
+
+/* --------------------------------------------------------------------------
+   Barra de Busca
+   -------------------------------------------------------------------------- */
+.blog-search-container {
+  width: 100%;
+  max-width: 600px;
+  margin-top: 28px;
+}
+
+.blog-search-box {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background: var(--color-white);
+  border: 1.5px solid var(--color-gray-300);
+  border-radius: 999px;
+  padding: 4px 6px 4px 18px;
+  box-shadow: 0 4px 16px rgba(20, 18, 22, 0.04);
+  transition: border-color var(--transition-base), box-shadow var(--transition-base);
+}
+
+.blog-search-box:focus-within {
+  border-color: var(--color-red);
+  box-shadow: 0 0 0 3px rgba(240, 68, 46, 0.12), 0 6px 20px rgba(20, 18, 22, 0.08);
+}
+
+.blog-search-icon {
+  width: 18px;
+  height: 18px;
+  color: var(--color-gray-500);
+  flex-shrink: 0;
+  margin-right: 10px;
+}
+
+.blog-search-input {
+  width: 100%;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 0.95rem;
+  color: var(--color-text);
+}
+
+.blog-search-input::placeholder {
+  color: var(--color-gray-500);
+}
+
+.blog-search-clear {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: none;
+  background: var(--color-gray-100);
+  color: var(--color-gray-700);
+  font-size: 1rem;
+  cursor: pointer;
+  padding: 0;
+  line-height: 1;
+  transition: background var(--transition-base), color var(--transition-base);
+}
+
+.blog-search-clear.is-visible {
+  display: flex;
+}
+
+.blog-search-clear:hover {
+  background: var(--color-gray-200);
+  color: var(--color-text);
+}
+
+/* --------------------------------------------------------------------------
+   Navegação por Categorias
+   -------------------------------------------------------------------------- */
+.blog-categories-bar {
+  background: var(--color-white);
+  border-bottom: 1px solid var(--color-gray-200);
+  padding-block: 14px;
+  position: sticky;
+  top: var(--header-height);
+  z-index: 10;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
+}
+
+.blog-categories-scroll {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+  padding-inline: 4px;
+}
+
+.blog-categories-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.blog-cat-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 18px;
+  border-radius: 999px;
+  border: 1px solid var(--color-gray-300);
+  background: transparent;
+  color: var(--color-gray-700);
+  font-weight: 600;
+  font-size: 0.85rem;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: all var(--transition-base);
+}
+
+/* Amplia a área de toque para perto de 44px sem alterar o tamanho visual
+   da pílula (~32px): a extensão invisível soma-se ao hit-box do botão. */
+.blog-cat-btn::after {
+  content: '';
+  position: absolute;
+  inset: -6px -3px;
+}
+
+.blog-cat-btn:hover {
+  border-color: var(--color-red);
+  color: var(--color-red);
+}
+
+.blog-cat-btn.is-active {
+  background: var(--gradient-primary);
+  border-color: transparent;
+  color: var(--color-white);
+  font-weight: 700;
+  box-shadow: 0 3px 12px rgba(240, 68, 46, 0.22);
+}
+
+/* --------------------------------------------------------------------------
+   Mensagem de Busca Vazia
+   -------------------------------------------------------------------------- */
+.blog-empty-state {
+  display: none;
+  text-align: center;
+  padding: 60px 20px;
+  margin-inline: auto;
+}
+
+.blog-empty-state.is-visible {
+  display: block;
+}
+
+.blog-empty-icon {
+  width: 48px;
+  height: 48px;
+  margin-inline: auto;
+  color: var(--color-gray-400);
+  margin-bottom: 14px;
+}
+
+.blog-empty-title {
+  font-family: 'Manrope', sans-serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--color-text);
+  margin-bottom: 8px;
+}
+
+.blog-empty-text {
+  color: var(--color-gray-700);
+  font-size: 0.95rem;
+  max-width: 440px;
+  margin-inline: auto;
+  margin-bottom: 18px;
+}
+
+.blog-empty-reset-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--color-gray-100);
+  border: 1px solid var(--color-gray-300);
+  border-radius: 999px;
+  padding: 8px 18px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-text);
+  cursor: pointer;
+  transition: all var(--transition-base);
+}
+
+.blog-empty-reset-btn:hover {
+  background: var(--color-gray-200);
+  color: var(--color-red);
+}
+
+/* --------------------------------------------------------------------------
+   Matéria em Destaque
+   -------------------------------------------------------------------------- */
+.blog-featured-section {
+  padding-block: clamp(40px, 5vw, 64px);
+  background: var(--color-white);
+}
+
+.blog-section-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-red);
+  margin-bottom: 8px;
+}
+
+.blog-featured-card {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+  background: var(--color-white);
+  border: 1px solid var(--color-gray-200);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(20, 18, 22, 0.04);
+  transition: transform var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-base);
+}
+
+.blog-featured-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--color-gray-300);
+}
+
+.blog-featured-media {
+  position: relative;
+  min-height: 380px;
+  background:
+    radial-gradient(circle at center, rgba(240, 68, 46, 0.12) 0%, transparent 70%),
+    linear-gradient(135deg, #1b1a23 0%, #252430 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.blog-featured-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.blog-featured-card:hover .blog-featured-img {
+  transform: scale(1.025);
+}
+
+/* --------------------------------------------------------------------------
+   Capas Editoriais Geradas (CSS/SVG) — usadas no destaque e nos cards
+   -------------------------------------------------------------------------- */
+.blog-cover {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background:
+    radial-gradient(circle at 78% 22%, rgba(240, 68, 46, 0.18) 0%, transparent 60%),
+    linear-gradient(135deg, #1d2128 0%, #2c2a38 100%);
+  transition: transform 0.35s ease;
+}
+
+.blog-cover-icon {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* Foto real do artigo (campo `image`), mantendo proporção 16:9 e enquadramento central.
+   Posicionamento absoluto evita que o item encolha dentro do flex do destaque
+   (bug de min-height:auto em <img> como filho flex), o que deixava uma sobra
+   escura do fundo do container visível na borda inferior da capa. */
+.blog-cover-photo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.35s ease;
+  display: block;
+}
+
+.blog-card:hover .blog-cover,
+.blog-card:hover .blog-cover-photo,
+.blog-featured-card:hover .blog-cover,
+.blog-featured-card:hover .blog-cover-photo {
+  transform: scale(1.03);
+}
+
+.blog-cover--lances { background: radial-gradient(circle at 78% 22%, rgba(240, 68, 46, 0.22) 0%, transparent 60%), linear-gradient(135deg, #241f2a 0%, #33283a 100%); }
+.blog-cover--imoveis { background: radial-gradient(circle at 78% 22%, rgba(255, 122, 26, 0.2) 0%, transparent 60%), linear-gradient(135deg, #1e232b 0%, #29323d 100%); }
+.blog-cover--veiculos { background: radial-gradient(circle at 78% 22%, rgba(240, 68, 46, 0.2) 0%, transparent 60%), linear-gradient(135deg, #20222b 0%, #2a2d38 100%); }
+.blog-cover--pesados { background: radial-gradient(circle at 78% 22%, rgba(255, 122, 26, 0.18) 0%, transparent 60%), linear-gradient(135deg, #1e2024 0%, #2b2d33 100%); }
+.blog-cover--seguranca { background: radial-gradient(circle at 78% 22%, rgba(240, 68, 46, 0.18) 0%, transparent 60%), linear-gradient(135deg, #1c2027 0%, #262b33 100%); }
+.blog-cover--mercado { background: radial-gradient(circle at 78% 22%, rgba(255, 122, 26, 0.22) 0%, transparent 60%), linear-gradient(135deg, #1f2229 0%, #2b2f38 100%); }
+
+.blog-featured-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 40%, rgba(20, 18, 26, 0.6) 100%);
+}
+
+.blog-featured-badge {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background: rgba(20, 18, 26, 0.8);
+  backdrop-filter: blur(8px);
+  color: var(--color-white);
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 5px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.blog-featured-content {
+  padding: clamp(28px, 4vw, 44px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.blog-badge {
+  display: inline-flex;
+  align-items: center;
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.74rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-red);
+  margin-bottom: 12px;
+}
+
+.blog-featured-title {
+  font-family: 'Manrope', sans-serif;
+  font-size: clamp(1.4rem, 2.2vw, 2rem);
+  font-weight: 800;
+  line-height: 1.25;
+  color: var(--color-text);
+  margin-bottom: 14px;
+}
+
+.blog-featured-title a {
+  color: inherit;
+  transition: color var(--transition-base);
+}
+
+.blog-featured-title a:hover {
+  color: var(--color-red);
+}
+
+.blog-featured-summary {
+  font-size: 0.98rem;
+  line-height: 1.65;
+  color: var(--color-gray-700);
+  margin-bottom: 22px;
+}
+
+.blog-meta {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-size: 0.82rem;
+  color: var(--color-gray-500);
+  margin-bottom: 24px;
+}
+
+.blog-meta-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.blog-meta-item svg {
+  width: 14px;
+  height: 14px;
+}
+
+.blog-cta-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: 'Manrope', sans-serif;
+  font-weight: 800;
+  font-size: 0.92rem;
+  color: var(--color-red);
+  transition: gap var(--transition-base), color var(--transition-base);
+}
+
+.blog-cta-link:hover {
+  gap: 10px;
+  color: var(--color-red-dark);
+}
+
+/* --------------------------------------------------------------------------
+   Estado do Card de Destaque em Preparação
+   -------------------------------------------------------------------------- */
+.blog-featured-card--preparing {
+  cursor: default;
+}
+
+.blog-featured-card--preparing:hover {
+  transform: none;
+  box-shadow: 0 10px 30px rgba(20, 18, 22, 0.04);
+  border-color: var(--color-gray-200);
+}
+
+.blog-featured-card--preparing:hover .blog-featured-img {
+  transform: none;
+}
+
+/* --------------------------------------------------------------------------
+   Cabeçalhos Compartilhados de Seção
+   -------------------------------------------------------------------------- */
+.blog-section-header {
+  margin-bottom: clamp(24px, 3.5vw, 36px);
+}
+
+.blog-section-title {
+  font-family: 'Manrope', sans-serif;
+  font-size: clamp(1.6rem, 2.4vw, 2.2rem);
+  font-weight: 800;
+  color: var(--color-text);
+  line-height: 1.2;
+}
+
+.blog-section-desc {
+  font-size: 0.98rem;
+  color: var(--color-gray-700);
+  margin-top: 6px;
+}
+
+/* --------------------------------------------------------------------------
+   Estado Sem Artigos (Grade de Últimos Artigos)
+   -------------------------------------------------------------------------- */
+.blog-recent-empty {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: clamp(48px, 6vw, 68px) 24px;
+  background: var(--color-gray-50);
+  border: 1px solid var(--color-gray-200);
+  border-radius: var(--radius-md);
+  margin-inline: auto;
+  max-width: 680px;
+  width: 100%;
+}
+
+.blog-recent-empty-icon-wrap {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--color-white);
+  border: 1px solid var(--color-gray-200);
+  color: var(--color-gray-500);
+  margin-bottom: 16px;
+}
+
+.blog-recent-empty-icon {
+  width: 26px;
+  height: 26px;
+}
+
+.blog-recent-empty-title {
+  font-family: 'Manrope', sans-serif;
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--color-text);
+  margin-bottom: 8px;
+}
+
+.blog-recent-empty-text {
+  color: var(--color-gray-700);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  max-width: 480px;
+  margin-inline: auto;
+}
+
+/* --------------------------------------------------------------------------
+   Seção "Mercado em Movimento"
+   -------------------------------------------------------------------------- */
+.blog-market-section {
+  padding-block: clamp(48px, 6vw, 76px);
+  background: var(--color-gray-50);
+  border-top: 1px solid var(--color-gray-200);
+}
+
+.blog-market-empty {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 24px 28px;
+  background: var(--color-white);
+  border: 1px solid var(--color-gray-200);
+  border-left: 3px solid var(--color-orange);
+  border-radius: var(--radius-md);
+  box-shadow: 0 4px 14px rgba(20, 18, 22, 0.03);
+}
+
+.blog-market-empty-icon-wrap {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(255, 122, 26, 0.1);
+  color: var(--color-orange);
+}
+
+.blog-market-empty-icon {
+  width: 22px;
+  height: 22px;
+}
+
+.blog-market-empty-text {
+  font-size: 0.95rem;
+  color: var(--color-gray-700);
+  line-height: 1.55;
+  margin: 0;
+}
+
+.blog-market-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.blog-market-card {
+  display: block;
+  background: var(--color-graphite);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  color: var(--color-white);
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
+}
+
+.blog-market-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 30px rgba(20, 18, 22, 0.18);
+}
+
+.blog-market-card-media {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+}
+
+.blog-market-card-body {
+  padding: 22px 24px 24px;
+}
+
+.blog-market-card-tag {
+  display: block;
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-orange);
+  margin-bottom: 10px;
+}
+
+.blog-market-card-title {
+  font-family: 'Manrope', sans-serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  line-height: 1.35;
+  margin-bottom: 8px;
+}
+
+.blog-market-card-summary {
+  font-size: 0.88rem;
+  line-height: 1.55;
+  color: var(--color-gray-300, #c7c7cc);
+  margin: 0;
+}
+
+/* --------------------------------------------------------------------------
+   Seção "Conteúdos Recentes" (Grid de Artigos)
+   -------------------------------------------------------------------------- */
+.blog-recent-section {
+  padding-block: clamp(48px, 6vw, 76px);
+  background: var(--color-white);
+}
+
+.blog-recent-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+.blog-card {
+  position: relative;
+  background: var(--color-white);
+  border: 1px solid var(--color-gray-200);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 16px rgba(20, 18, 22, 0.03);
+  transition: transform var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-base);
+}
+
+.blog-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--color-gray-300);
+}
+
+.blog-card-media {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  background: var(--color-gray-100);
+  overflow: hidden;
+}
+
+.blog-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.35s ease;
+}
+
+.blog-card:hover .blog-card-img {
+  transform: scale(1.03);
+}
+
+/* Fallback gráfico editorial sofisticado */
+.blog-card-graphic {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background:
+    radial-gradient(circle at 80% 20%, rgba(240, 68, 46, 0.15) 0%, transparent 60%),
+    linear-gradient(135deg, #201e28 0%, #2c2a38 100%);
+  color: var(--color-white);
+  position: relative;
+  overflow: hidden;
+}
+
+.blog-card-graphic svg {
+  width: 52px;
+  height: 52px;
+  color: rgba(255, 255, 255, 0.85);
+  transition: transform 0.3s ease;
+}
+
+.blog-card:hover .blog-card-graphic svg {
+  transform: scale(1.08);
+}
+
+.blog-card-cat-badge {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  background: rgba(20, 18, 26, 0.75);
+  backdrop-filter: blur(6px);
+  color: var(--color-white);
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.blog-card-body {
+  padding: 22px 20px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.blog-card-title {
+  font-family: 'Manrope', sans-serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  line-height: 1.35;
+  color: var(--color-text);
+  margin-bottom: 10px;
+}
+
+.blog-card-title a {
+  color: inherit;
+  transition: color var(--transition-base);
+}
+
+.blog-card:hover .blog-card-title a {
+  color: var(--color-red);
+}
+
+.blog-card-summary {
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: var(--color-gray-700);
+  margin-bottom: 16px;
+  flex-grow: 1;
+}
+
+.blog-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 14px;
+  border-top: 1px solid var(--color-gray-100);
+  font-size: 0.82rem;
+  color: var(--color-gray-500);
+  margin-top: auto;
+}
+
+.blog-card-status {
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-gray-500);
+  background: var(--color-gray-100);
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+/* --------------------------------------------------------------------------
+   CTA de Fechamento Editorial
+   -------------------------------------------------------------------------- */
+.blog-cta-section {
+  padding-block: clamp(48px, 6vw, 72px);
+  background:
+    radial-gradient(circle at 10% 50%, rgba(240, 68, 46, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 90% 50%, rgba(255, 122, 26, 0.08) 0%, transparent 50%),
+    linear-gradient(180deg, var(--color-gray-50) 0%, #ede8e3 100%);
+  border-top: 1px solid var(--color-gray-200);
+}
+
+.blog-cta-card {
+  max-width: 860px;
+  margin-inline: auto;
+  text-align: center;
+  padding: clamp(32px, 5vw, 56px) 24px;
+  background: var(--color-white);
+  border: 1px solid var(--color-gray-200);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 16px 36px rgba(20, 18, 22, 0.06);
+}
+
+.blog-cta-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-red);
+  margin-bottom: 12px;
+}
+
+.blog-cta-title {
+  font-family: 'Manrope', sans-serif;
+  font-size: clamp(1.6rem, 2.5vw, 2.3rem);
+  font-weight: 800;
+  line-height: 1.25;
+  color: var(--color-text);
+  margin-bottom: 12px;
+}
+
+.blog-cta-text {
+  font-size: 1.05rem;
+  color: var(--color-gray-700);
+  max-width: 580px;
+  margin-inline: auto;
+  margin-bottom: 24px;
+  line-height: 1.6;
+}
+
+.blog-cta-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.blog-cta-btn-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 12px 22px;
+  border-radius: 999px;
+  border: 1.5px solid var(--color-gray-300);
+  color: var(--color-text);
+  font-weight: 700;
+  font-size: 0.92rem;
+  transition: all var(--transition-base);
+}
+
+.blog-cta-btn-outline:hover {
+  border-color: var(--color-red);
+  color: var(--color-red);
+  transform: translateX(2px);
+}
+
+/* --------------------------------------------------------------------------
+   Estilos da Página de Artigo Completo (blog-post)
+   -------------------------------------------------------------------------- */
+.blog-post-header {
+  padding-block: clamp(36px, 5vw, 60px) 32px;
+  background: var(--color-gray-50);
+  border-bottom: 1px solid var(--color-gray-200);
+}
+
+.blog-breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.82rem;
+  color: var(--color-gray-500);
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.blog-breadcrumb a {
+  color: var(--color-gray-700);
+  transition: color var(--transition-base);
+}
+
+.blog-breadcrumb a:hover {
+  color: var(--color-red);
+}
+
+.blog-breadcrumb-separator {
+  color: var(--color-gray-400);
+}
+
+.blog-post-title {
+  font-family: 'Manrope', sans-serif;
+  font-size: clamp(2rem, 3.8vw, 3.1rem);
+  font-weight: 800;
+  line-height: 1.2;
+  color: var(--color-text);
+  margin-bottom: 16px;
+  letter-spacing: -0.015em;
+}
+
+.blog-post-lead {
+  font-size: clamp(1.05rem, 1.3vw, 1.25rem);
+  line-height: 1.65;
+  color: var(--color-gray-700);
+  max-width: 820px;
+  margin-bottom: 24px;
+}
+
+.blog-post-meta {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding-top: 16px;
+  border-top: 1px solid var(--color-gray-200);
+  font-size: 0.85rem;
+  color: var(--color-gray-500);
+  flex-wrap: wrap;
+}
+
+.blog-post-featured-media {
+  max-width: 980px;
+  margin-inline: auto;
+  margin-top: -20px;
+  margin-bottom: 40px;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: 0 12px 36px rgba(20, 18, 22, 0.08);
+}
+
+.blog-post-featured-media img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Corpo do artigo editorial */
+.blog-post-body {
+  max-width: 740px;
+  margin-inline: auto;
+  padding-block: 24px 60px;
+  font-size: 1.05rem;
+  line-height: 1.78;
+  color: #24252b;
+}
+
+.blog-post-body p {
+  margin-bottom: 22px;
+}
+
+.blog-post-body h2 {
+  font-family: 'Manrope', sans-serif;
+  font-size: clamp(1.4rem, 2.2vw, 1.85rem);
+  font-weight: 800;
+  color: var(--color-text);
+  line-height: 1.3;
+  margin-top: 42px;
+  margin-bottom: 16px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--color-gray-200);
+}
+
+.blog-post-body h3 {
+  font-family: 'Manrope', sans-serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-text);
+  margin-top: 28px;
+  margin-bottom: 12px;
+}
+
+.blog-post-body ul,
+.blog-post-body ol {
+  margin-bottom: 24px;
+  padding-left: 20px;
+}
+
+.blog-post-body li {
+  margin-bottom: 10px;
+  line-height: 1.65;
+}
+
+.blog-post-callout {
+  background: var(--color-gray-50);
+  border-left: 4px solid var(--color-red);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  padding: 20px 22px;
+  margin-block: 28px;
+}
+
+.blog-post-callout-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Manrope', sans-serif;
+  font-weight: 800;
+  font-size: 0.95rem;
+  color: var(--color-red);
+  margin-bottom: 8px;
+}
+
+.blog-post-callout p:last-child {
+  margin-bottom: 0;
+}
+
+.blog-post-inline-cta {
+  background: linear-gradient(135deg, #1d2128 0%, #2a2e36 100%);
+  color: var(--color-white);
+  padding: 32px 28px;
+  border-radius: var(--radius-md);
+  margin-block: 36px;
+  text-align: center;
+}
+
+.blog-post-inline-cta h3 {
+  font-family: 'Manrope', sans-serif;
+  font-size: 1.35rem;
+  color: var(--color-white);
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.blog-post-inline-cta p {
+  color: var(--color-gray-300);
+  font-size: 0.95rem;
+  margin-bottom: 20px;
+}
+
+.blog-post-footer-box {
+  background: var(--color-gray-50);
+  border: 1px solid var(--color-gray-200);
+  border-radius: var(--radius-md);
+  padding: 20px;
+  margin-top: 48px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.blog-post-author-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--gradient-primary);
+  color: var(--color-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.blog-post-author-info strong {
+  display: block;
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.92rem;
+  color: var(--color-text);
+}
+
+.blog-post-author-info span {
+  font-size: 0.82rem;
+  color: var(--color-gray-500);
+}
+
+/* Artigos Relacionados */
+.blog-related-section {
+  padding-block: 56px;
+  background: var(--color-gray-50);
+  border-top: 1px solid var(--color-gray-200);
+}
+
+/* --------------------------------------------------------------------------
+   Responsividade Geral do Blog
+   -------------------------------------------------------------------------- */
+@media (max-width: 1024px) {
+  .blog-recent-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 1024px) {
+  .blog-hero-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .blog-hero-col {
+    align-items: center;
+    text-align: center;
+  }
+
+  .blog-hero-col .blog-hero-title,
+  .blog-hero-col .blog-hero-lead {
+    text-align: center;
+  }
+
+  .blog-hero-pillars {
+    justify-content: center;
+  }
+
+  .blog-hero-visual {
+    /* width explícito: sem isso, um container só com max-width e filhos
+       position:absolute (que não contribuem para o tamanho intrínseco do
+       pai) podia colapsar para largura 0 fora do fluxo de grid do
+       desktop, "sumindo" o painel entre 1024px e o breakpoint mobile. */
+    width: 100%;
+    min-height: 460px;
+    max-width: 440px;
+    margin-inline: auto;
+    margin-top: 8px;
+  }
+
+  .blog-market-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .blog-featured-card {
+    grid-template-columns: 1fr;
+  }
+
+  .blog-featured-media {
+    min-height: 240px;
+  }
+
+  .blog-recent-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .blog-market-empty {
+    flex-direction: column;
+    text-align: center;
+    padding: 20px 18px;
+  }
+
+  .blog-market-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .blog-search-box {
+    padding-left: 14px;
+  }
+
+  .blog-hero-visual {
+    min-height: 430px;
+    max-width: 360px;
+  }
+
+  .blog-hero-visual-card--back {
+    inset: 6% 5% 3% 9%;
+    transform: rotate(2.5deg);
+  }
+
+  .blog-hero-visual-card--front {
+    top: 1%;
+    right: 9%;
+    left: 1%;
+    bottom: auto;
+    padding: 24px 22px 28px;
+    gap: 14px;
+  }
+
+  .blog-hero-panel-title {
+    font-size: 1.5rem;
+  }
+
+  .blog-hero-panel-item {
+    padding-block: 12px;
+  }
+}
+
+@media (max-width: 600px) {
+  .blog-hero {
+    padding-block: 36px;
+  }
+
+  .blog-hero-title {
+    font-size: 1.85rem;
+  }
+
+  .blog-featured-content {
+    padding: 24px 18px;
+  }
+
+  .blog-post-header {
+    padding-block: 28px 24px;
+  }
+
+  .blog-post-body {
+    padding-inline: 16px;
+    font-size: 1rem;
+  }
+}

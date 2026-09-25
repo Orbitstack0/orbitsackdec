@@ -1,0 +1,1106 @@
+/* ==========================================================================
+   NOSSA HISTÓRIA - ESTILOS DEDICADOS
+   Decolar Consórcios - Experiência Cinematográfica & Storytelling
+   ========================================================================== */
+
+:root {
+  --historia-bg-dark: #0d0c10;
+  --historia-bg-dark-surface: #141318;
+  --historia-bg-dark-card: rgba(255, 255, 255, 0.03);
+  --historia-border-dark: rgba(255, 255, 255, 0.08);
+  --historia-glow: rgba(240, 68, 46, 0.35);
+}
+
+/* Base da página de história */
+.story-page {
+  background-color: var(--color-white);
+  color: var(--color-text);
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Indicador de progresso de leitura sutil no topo */
+.story-progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  width: 0%;
+  background: var(--gradient-primary);
+  z-index: 999;
+  transition: width 0.1s linear;
+}
+
+/* Estilo geral de cena */
+.story-scene {
+  position: relative;
+  width: 100%;
+  padding-block: clamp(80px, 12vh, 160px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+.story-scene .container {
+  position: relative;
+  z-index: 2;
+}
+
+/* ==========================================================================
+   CENA 01 - ABERTURA (HERO VIEWPORT)
+   ========================================================================== */
+.scene-hero {
+  min-height: calc(100vh - var(--header-height));
+  min-height: calc(100svh - var(--header-height));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: radial-gradient(circle at 50% 30%, rgba(255, 122, 26, 0.05) 0%, rgba(255, 255, 255, 0) 70%),
+              linear-gradient(180deg, #ffffff 0%, #f9f9fb 100%);
+  position: relative;
+  overflow: hidden;
+  padding-block: clamp(56px, 9vh, 100px);
+}
+
+/* Tablets em orientação retrato (ex.: 1024x1366): 100vh/100svh nessa
+   altura produzia um hero de ~1278px com muito espaço morto entre o
+   número gigante e a base da seção. Landscape (1366x768 etc.) não é
+   afetado — mesmo racional aplicado ao Hero da Home. */
+@media (min-width: 600px) and (orientation: portrait) {
+  .scene-hero {
+    min-height: min(calc(100svh - var(--header-height)), 760px);
+  }
+}
+
+.scene-hero-bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: radial-gradient(var(--color-gray-200) 1px, transparent 1px);
+  background-size: 32px 32px;
+  opacity: 0.5;
+}
+
+.scene-hero-content {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.scene-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: clamp(0.75rem, 0.3vw + 0.65rem, 0.85rem);
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-red);
+  background: rgba(240, 68, 46, 0.08);
+  padding: 6px 16px;
+  border-radius: 999px;
+  margin-bottom: 24px;
+}
+
+.hero-giant-number {
+  font-family: 'Manrope', 'Inter', sans-serif;
+  font-size: clamp(4.5rem, 14vw, 11rem);
+  font-weight: 800;
+  line-height: 0.95;
+  letter-spacing: -0.04em;
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 16px;
+  display: inline-block;
+  filter: drop-shadow(0 15px 30px rgba(240, 68, 46, 0.15));
+}
+
+.hero-subtitle {
+  font-family: 'Manrope', 'Inter', sans-serif;
+  font-size: clamp(1.5rem, 2.5vw, 2.5rem);
+  font-weight: 700;
+  color: var(--color-graphite);
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+  margin-bottom: 20px;
+}
+
+.hero-desc {
+  font-size: clamp(1.05rem, 1vw + 0.8rem, 1.25rem);
+  line-height: 1.7;
+  color: var(--color-gray-700);
+  max-width: 680px;
+  margin-bottom: 36px;
+}
+
+.hero-location {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--color-gray-500);
+  padding: 8px 18px;
+  border: 1px solid var(--color-gray-300);
+  border-radius: 999px;
+  background: var(--color-white);
+  box-shadow: var(--shadow-sm);
+}
+
+.hero-scroll-hint {
+  margin-top: 48px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  color: var(--color-gray-500);
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  font-weight: 600;
+  animation: pulseHint 2.5s infinite ease-in-out;
+}
+
+.hero-scroll-hint svg {
+  width: 20px;
+  height: 20px;
+}
+
+@keyframes pulseHint {
+  0%, 100% { transform: translateY(0); opacity: 0.7; }
+  50% { transform: translateY(6px); opacity: 1; }
+}
+
+/* ==========================================================================
+   CENA 02 - 38 ANOS NO MERCADO DE CONSÓRCIOS (LINHA DO TEMPO EDITORIAL)
+   Timeline horizontal institucional: sem cards, sem composição radial.
+   A força vem da tipografia, do alinhamento, da linha e do espaço.
+   ========================================================================== */
+.scene-path {
+  border-top: 1px solid var(--color-gray-100);
+  padding-block: clamp(56px, 8vh, 88px);
+  background: linear-gradient(180deg, var(--color-white) 0%, var(--color-white) 95%, var(--historia-bg-dark) 100%);
+}
+
+.path-header {
+  max-width: 720px;
+  margin: 0 auto clamp(40px, 6vh, 64px);
+  text-align: center;
+}
+
+.path-headline {
+  font-family: 'Manrope', 'Inter', sans-serif;
+  font-size: clamp(1.8rem, 2.8vw, 2.5rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  color: var(--color-graphite);
+}
+
+.path-intro {
+  margin-top: 12px;
+  font-size: clamp(1rem, 0.3vw + 0.92rem, 1.1rem);
+  line-height: 1.65;
+  color: var(--color-gray-700);
+}
+
+.path-timeline {
+  position: relative;
+  max-width: 1180px;
+  margin: 0 auto;
+  padding-top: 20px;
+}
+
+.path-track {
+  position: absolute;
+  top: 20px;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: var(--color-gray-200);
+  overflow: hidden;
+}
+
+.path-track::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 26%;
+  background: linear-gradient(90deg, var(--color-gray-200) 0%, var(--color-orange) 100%);
+}
+
+.path-items {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 0.9fr 0.9fr 1.2fr 1fr;
+  gap: clamp(20px, 3vw, 40px);
+}
+
+.path-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 15px;
+  text-align: center;
+}
+
+.path-node {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--color-red);
+  margin-bottom: 22px;
+}
+
+.path-year {
+  font-family: 'Manrope', 'Inter', sans-serif;
+  font-size: clamp(1.5rem, 2vw, 1.9rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  color: var(--color-graphite);
+}
+
+.path-item-title {
+  display: block;
+  margin-top: 8px;
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-red);
+}
+
+.path-item-desc {
+  margin-top: 10px;
+  max-width: 260px;
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: var(--color-gray-700);
+}
+
+.path-item--bridge .path-node {
+  width: 12px;
+  height: 12px;
+  background: var(--color-orange);
+  box-shadow: 0 0 0 5px rgba(255, 122, 26, 0.15);
+}
+
+.path-item--bridge .path-year {
+  font-size: clamp(1.65rem, 2.3vw, 2.1rem);
+  color: var(--color-orange);
+}
+
+/* Tablet: as 4 colunas do desktop ficavam com 146-195px cada em 768px —
+   estreito demais para os textos. 2 colunas até 1023px, mantendo o
+   layout horizontal (o empilhamento vertical só entra abaixo de 761px). */
+@media (min-width: 761px) and (max-width: 1023px) {
+  .path-items {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    row-gap: clamp(28px, 4vw, 44px);
+  }
+}
+
+@media (max-width: 760px) {
+  .path-timeline {
+    padding-top: 0;
+  }
+
+  .path-track {
+    top: 0;
+    left: 4px;
+    right: auto;
+    width: 1px;
+    height: 100%;
+  }
+
+  .path-track::after {
+    top: auto;
+    right: auto;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 26%;
+    background: linear-gradient(180deg, var(--color-gray-200) 0%, var(--color-orange) 100%);
+  }
+
+  .path-items {
+    grid-template-columns: 1fr;
+    gap: clamp(28px, 6vw, 40px);
+  }
+
+  .path-item {
+    position: relative;
+    align-items: flex-start;
+    text-align: left;
+    padding-top: 0;
+    padding-left: 24px;
+  }
+
+  .path-node {
+    position: absolute;
+    left: 0;
+    margin-bottom: 0;
+    margin-top: 6px;
+  }
+
+  .path-item-desc {
+    max-width: none;
+  }
+}
+
+/* ==========================================================================
+   CENA 05 - NASCE A DECOLAR (MOMENTO HISTÓRICO - DARK SUBLIME)
+   ========================================================================== */
+.scene-birth {
+  background-color: var(--historia-bg-dark);
+  color: var(--color-white);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  padding-block: clamp(85px, 13.5vh, 170px);
+}
+
+.scene-birth::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: clamp(300px, 60vw, 700px);
+  height: clamp(300px, 60vw, 700px);
+  background: radial-gradient(circle, rgba(240, 68, 46, 0.22) 0%, rgba(255, 122, 26, 0.08) 45%, transparent 70%);
+  filter: blur(50px);
+  pointer-events: none;
+}
+
+.scene-birth-content {
+  max-width: 860px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.birth-year {
+  font-family: 'Manrope', 'Inter', sans-serif;
+  font-size: clamp(4rem, 10vw, 8rem);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  color: rgba(255, 255, 255, 0.15);
+  margin-bottom: 12px;
+}
+
+.birth-subtitle {
+  font-size: clamp(0.9rem, 0.4vw + 0.8rem, 1.15rem);
+  font-weight: 700;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--color-orange);
+  margin-bottom: 24px;
+}
+
+.birth-title {
+  font-family: 'Manrope', 'Inter', sans-serif;
+  font-size: clamp(2rem, 4vw, 3.8rem);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+  margin-bottom: 28px;
+  background: linear-gradient(135deg, #ffffff 30%, #e2e2e2 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.birth-logo-wrap {
+  margin: 36px auto;
+  display: inline-flex;
+  padding: 24px 44px;
+  background: rgba(255, 255, 255, 0.98);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.5), 0 0 40px rgba(240, 68, 46, 0.25);
+}
+
+.birth-logo-wrap img {
+  height: clamp(44px, 4vw, 64px);
+  max-height: 64px;
+  width: auto;
+  max-width: 240px;
+  object-fit: contain;
+}
+
+.birth-desc {
+  font-size: clamp(1.05rem, 0.5vw + 0.9rem, 1.25rem);
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.75);
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+/* ==========================================================================
+   CENA 06 - A DECOLAR HOJE (BLOCO INSTITUCIONAL CURTO)
+   Mais sóbrio que cinematográfico: mesmo registro escuro da cena de
+   nascimento e do mapa, sem glow, composição horizontal texto + indicadores.
+   ========================================================================== */
+.scene-institutional {
+  background-color: var(--historia-bg-dark-surface);
+  color: var(--color-white);
+  border-top: 1px solid var(--historia-border-dark);
+  border-bottom: 1px solid var(--historia-border-dark);
+  padding-block: clamp(56px, 8vh, 96px);
+}
+
+.institutional-grid {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: clamp(32px, 4vw, 56px);
+}
+
+.institutional-text {
+  flex: 1 1 380px;
+  max-width: 560px;
+}
+
+.institutional-text .scene-tag {
+  margin-bottom: 14px;
+}
+
+.institutional-text h2 {
+  font-family: 'Manrope', 'Inter', sans-serif;
+  font-size: clamp(1.6rem, 2.6vw, 2.3rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+  color: var(--color-white);
+  margin-bottom: 14px;
+}
+
+.institutional-text p {
+  font-size: clamp(0.98rem, 0.3vw + 0.9rem, 1.08rem);
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.institutional-indicators {
+  display: flex;
+  flex-wrap: wrap;
+  gap: clamp(20px, 3vw, 36px);
+  flex: 1 1 300px;
+  justify-content: flex-end;
+}
+
+.institutional-indicator {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding-left: 16px;
+  border-left: 2px solid var(--color-orange);
+  min-width: 120px;
+}
+
+.indicator-value {
+  font-family: 'Manrope', 'Inter', sans-serif;
+  font-size: clamp(1.6rem, 2.2vw, 2.1rem);
+  font-weight: 800;
+  color: var(--color-white);
+  letter-spacing: -0.01em;
+}
+
+.indicator-label {
+  font-size: 0.8rem;
+  line-height: 1.4;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+@media (max-width: 760px) {
+  .institutional-indicators {
+    justify-content: flex-start;
+  }
+}
+
+/* ==========================================================================
+   CENA 07 - DE PORTO ALEGRE PARA O BRASIL (MAPA INTERATIVO / CINEMATOGRÁFICO)
+   ========================================================================== */
+/* ==========================================================================
+   CENA 07 - DE PORTO ALEGRE PARA O BRASIL (MAPA GEOGRÁFICO REAL & PREMIUM)
+   ========================================================================== */
+.scene-map {
+  background-color: #060508;
+  color: var(--color-white);
+  position: relative;
+  padding-block: clamp(72px, 9vh, 110px);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Glow radial atmosférico integrado no fundo */
+.map-ambient-glow {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(circle at 48% 68%, rgba(240, 68, 46, 0.15) 0%, rgba(255, 122, 26, 0.05) 35%, transparent 70%);
+  opacity: 0.6;
+  transition: opacity 1.5s ease;
+  z-index: 1;
+}
+
+.scene-map.is-in-view .map-ambient-glow {
+  opacity: 1;
+}
+
+.map-scene-container {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.scene-map-header {
+  text-align: center;
+  max-width: 860px;
+  margin: 0 auto clamp(36px, 5vh, 60px);
+  position: relative;
+  z-index: 3;
+}
+
+.scene-map-header h2 {
+  font-family: 'Manrope', 'Inter', sans-serif;
+  font-size: clamp(2.2rem, 4.2vw, 4rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.18;
+  margin-bottom: 18px;
+  background: linear-gradient(135deg, #ffffff 40%, #ff7a1a 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.scene-map-header p {
+  font-size: clamp(1.05rem, 0.5vw + 0.9rem, 1.25rem);
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+/* Showcase do Mapa com protagonismo total (sem borda de card rígida) */
+.map-showcase {
+  width: 100%;
+  max-width: 1080px;
+  margin: 0 auto;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.map-svg-container {
+  width: 100%;
+  max-width: 960px;
+  min-height: clamp(320px, 46vh, 500px);
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.brazil-svg {
+  width: 100%;
+  height: 100%;
+  max-height: 500px;
+  filter: drop-shadow(0 25px 50px rgba(0, 0, 0, 0.8));
+  overflow: visible;
+}
+
+/* Estados do Brasil: Geometria Real e Linhas Sutis */
+.state-path {
+  fill: #131218;
+  stroke: rgba(255, 255, 255, 0.13);
+  stroke-width: 0.8;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+  transition: fill 0.4s ease, stroke 0.4s ease;
+}
+
+.state-path:hover {
+  fill: #191822;
+  stroke: rgba(255, 255, 255, 0.3);
+}
+
+/* Estado de Origem: Rio Grande do Sul */
+#BRRS.state-path {
+  fill: #1a151d;
+  stroke: rgba(240, 68, 46, 0.5);
+  stroke-width: 1.2;
+}
+
+/* Linhas de Conexão Curvas com Animação Progressiva */
+.connection-line {
+  stroke-dasharray: 800;
+  stroke-dashoffset: 800;
+  opacity: 0;
+  transition: stroke-dashoffset 1.4s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.4s ease;
+}
+
+.connection-line.is-active {
+  stroke-dashoffset: 0;
+  opacity: 1;
+}
+
+/* Ponto de Origem: Porto Alegre */
+.origin-dot-core {
+  fill: var(--color-red);
+}
+
+.origin-pulse-ring {
+  fill: none;
+  stroke: var(--color-red);
+  stroke-width: 1.5;
+  transform-origin: 475px 780px;
+}
+
+.origin-pulse-1 {
+  animation: smoothPoaPulse 2.8s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+}
+
+.origin-pulse-2 {
+  animation: smoothPoaPulse 2.8s cubic-bezier(0.215, 0.61, 0.355, 1) infinite 1.4s;
+}
+
+@keyframes smoothPoaPulse {
+  0% { r: 7; opacity: 0.9; stroke-width: 2; }
+  60% { r: 32; opacity: 0.3; stroke-width: 1.2; }
+  100% { r: 48; opacity: 0; stroke-width: 0.3; }
+}
+
+/* Badge estilizado de Porto Alegre */
+.origin-badge {
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.scene-map.is-in-view .origin-badge {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.origin-badge-bg {
+  fill: rgba(18, 16, 24, 0.94);
+  stroke: rgba(240, 68, 46, 0.7);
+  stroke-width: 1.5;
+  filter: drop-shadow(0 6px 16px rgba(0, 0, 0, 0.6));
+}
+
+.origin-badge-title {
+  fill: #ffffff;
+  font-family: 'Manrope', 'Inter', sans-serif;
+  font-size: 11.5px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+}
+
+.origin-badge-subtitle {
+  fill: var(--color-orange);
+  font-family: 'Inter', sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+}
+
+/* Nós Regionais (Destinos) */
+.regional-node {
+  opacity: 0;
+  transform: scale(0.6);
+  transform-origin: center;
+  transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.regional-node.is-active {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.destination-dot {
+  fill: var(--color-orange);
+  filter: drop-shadow(0 0 6px #ff7a1a);
+}
+
+.destination-halo {
+  fill: none;
+  stroke: var(--color-orange);
+  stroke-width: 1.2;
+  opacity: 0.35;
+  animation: haloPulse 2.6s ease-in-out infinite alternate;
+}
+
+@keyframes haloPulse {
+  0% {
+    r: 9px;
+    opacity: 0.25;
+    stroke-width: 1px;
+  }
+  100% {
+    r: 15px;
+    opacity: 0.6;
+    stroke-width: 1.5px;
+  }
+}
+
+.map-label-region {
+  fill: #ffffff;
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.9), 0 0 2px rgba(0, 0, 0, 1);
+}
+
+/* Mensagem Final após todas as regiões conectadas */
+.map-final-message {
+  text-align: center;
+  max-width: 780px;
+  margin: clamp(40px, 5vh, 60px) auto 0;
+  padding: 24px 36px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: var(--radius-lg);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 1s ease 0.3s, transform 1s cubic-bezier(0.16, 1, 0.3, 1) 0.3s;
+}
+
+.map-final-message.is-active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.map-final-title {
+  font-family: 'Manrope', 'Inter', sans-serif;
+  font-size: clamp(1.4rem, 2.2vw, 2rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--color-white);
+  margin-bottom: 10px;
+  background: linear-gradient(135deg, #ffffff 40%, #ff7a1a 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.map-final-desc {
+  font-size: clamp(1rem, 0.4vw + 0.9rem, 1.15rem);
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.75);
+  margin: 0;
+}
+
+/* ==========================================================================
+   CENA 08 - 2026: PRESENTE E PRÓXIMO CAPÍTULO
+   Cena curta e compacta, mesmo registro escuro das cenas anteriores.
+   ========================================================================== */
+.scene-present {
+  background-color: var(--historia-bg-dark);
+  color: var(--color-white);
+  text-align: center;
+  padding-block: clamp(64px, 9vh, 110px);
+  position: relative;
+}
+
+.present-content {
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.present-year {
+  display: block;
+  font-family: 'Manrope', 'Inter', sans-serif;
+  font-size: clamp(3rem, 7vw, 5.5rem);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 14px;
+}
+
+.present-subtitle {
+  font-family: 'Manrope', 'Inter', sans-serif;
+  font-size: clamp(1.4rem, 2.2vw, 1.9rem);
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  color: var(--color-white);
+  margin-bottom: 14px;
+}
+
+.present-text {
+  font-size: clamp(0.98rem, 0.3vw + 0.9rem, 1.1rem);
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.present-indicators {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 24px;
+}
+
+.present-chip {
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: rgba(255, 255, 255, 0.85);
+  padding: 8px 16px;
+  border: 1px solid var(--historia-border-dark);
+  border-radius: 999px;
+}
+
+/* ==========================================================================
+   CENA FINAL - O ENCERRAMENTO CINEMATOGRÁFICO & CTA
+   ========================================================================== */
+.scene-closing {
+  background: radial-gradient(circle at 50% 20%, #1c1a24 0%, #0d0c10 100%);
+  color: var(--color-white);
+  text-align: center;
+  position: relative;
+  padding-block: clamp(85px, 13.5vh, 170px);
+  overflow: hidden;
+}
+
+.scene-closing-content {
+  max-width: 860px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.closing-journey {
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+  padding: 10px 24px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-orange);
+  margin-bottom: 32px;
+}
+
+.closing-punchline {
+  font-family: 'Manrope', 'Inter', sans-serif;
+  font-size: clamp(2rem, 4.2vw, 3.8rem);
+  font-weight: 800;
+  line-height: 1.25;
+  letter-spacing: -0.03em;
+  color: var(--color-white);
+  margin-bottom: 36px;
+}
+
+.closing-punchline span {
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.closing-logo {
+  margin: 32px auto;
+  display: inline-block;
+  padding: 20px 36px;
+  background: rgba(255, 255, 255, 0.98);
+  border-radius: var(--radius-md);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6);
+}
+
+.closing-logo img {
+  height: clamp(38px, 3.5vw, 54px);
+  max-height: 54px;
+  width: auto;
+  max-width: 220px;
+  object-fit: contain;
+}
+
+.closing-slogan {
+  font-family: 'Manrope', 'Inter', sans-serif;
+  font-size: clamp(1.2rem, 1.8vw, 1.6rem);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 44px;
+}
+
+.closing-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.closing-actions .btn {
+  padding: 14px 28px;
+  font-size: 0.95rem;
+}
+
+/* ==========================================================================
+   FOOTER DA HISTÓRIA
+   ========================================================================== */
+.story-footer {
+  background-color: #08070a;
+  color: var(--color-gray-500);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding-block: 16px;
+  font-size: 0.85rem;
+}
+
+.story-footer-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: nowrap;
+}
+
+.story-footer-inner p {
+  margin: 0;
+  white-space: nowrap;
+}
+
+.story-footer-links {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  flex-wrap: nowrap;
+}
+
+.story-footer-links a {
+  color: var(--color-gray-500);
+  transition: color 0.2s ease;
+}
+
+.story-footer-links a:hover {
+  color: var(--color-white);
+}
+
+/* ==========================================================================
+   SCROLL REVEALS & ANIMAÇÕES
+   ========================================================================== */
+.reveal-item {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.reveal-item.is-revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Respeito à preferência por movimento reduzido */
+@media (prefers-reduced-motion: reduce) {
+  .reveal-item {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+  .connection-line {
+    stroke-dashoffset: 0 !important;
+    opacity: 1 !important;
+    transition: none !important;
+  }
+  .regional-node,
+  .origin-badge,
+  .map-final-message {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+  .origin-pulse-ring,
+  .destination-halo,
+  .hero-scroll-hint {
+    animation: none !important;
+  }
+}
+
+/* ==========================================================================
+   RESPONSIVIDADE (TABLET & MOBILE)
+   ========================================================================== */
+@media (max-width: 768px) {
+  .story-footer-inner {
+    flex-direction: column;
+    text-align: center;
+    gap: 16px;
+  }
+
+  .story-footer-inner p {
+    white-space: normal;
+  }
+
+  .story-footer-links {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .map-svg-container {
+    min-height: 420px;
+  }
+
+  .map-label-region {
+    font-size: 15px;
+  }
+
+  .origin-badge-title {
+    font-size: 13px;
+  }
+
+  .origin-badge-subtitle {
+    font-size: 10px;
+  }
+}
+
+/* Telas muito estreitas: o SVG do Brasil usa "overflow: visible" (para o
+   pulso de origem e o badge de Porto Alegre não serem cortados em telas
+   normais), mas em <=375px essa mesma folga faz o badge ultrapassar a
+   largura do container. Contém a folga com padding + leve redução de
+   escala, sem remover nem recompor o mapa. */
+@media (max-width: 375px) {
+  .map-svg-container {
+    padding-inline: 10px;
+    overflow: hidden;
+    min-height: 340px;
+  }
+
+  .brazil-svg {
+    transform: scale(0.92);
+    transform-origin: center center;
+  }
+}
+

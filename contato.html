@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fale Conosco | Decolar Consórcios</title>
+  <meta name="description" content="Fale com a Decolar Consórcios. Tire dúvidas, continue sua simulação, conheça nossas modalidades ou entre em contato com nosso atendimento.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="contato.css">
+</head>
+<body>
+
+  <!-- Header Institucional idêntico ao da Home -->
+  <header class="site-header" id="site-header">
+    <div class="header-inner container">
+
+      <a href="index.html#inicio" class="logo-link" aria-label="Decolar Consórcios - página inicial">
+        <img src="assets/images/LOGO.png" alt="Decolar Consórcios" class="logo-img" width="200" height="50">
+      </a>
+
+      <div class="mobile-menu-panel" id="mobile-menu-panel">
+      <nav class="main-nav" id="main-nav" aria-label="Navegação principal">
+        <ul>
+          <li><a href="index.html#inicio">Início</a></li>
+          <li class="nav-item-dropdown">
+            <a href="index.html#consorcios" class="has-submenu" aria-haspopup="true" aria-expanded="false">
+              Consórcios
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M6 9l6 6 6-6"></path>
+              </svg>
+            </a>
+            <ul class="submenu">
+              <li><a href="index.html#consorcio-veiculos">Consórcio de Veículos</a></li>
+              <li><a href="index.html#consorcio-imoveis">Consórcio de Imóveis</a></li>
+              <li><a href="index.html#consorcio-pesados">Consórcio de Pesados</a></li>
+            </ul>
+          </li>
+          <li><a href="como-funciona.html">Como Funciona</a></li>
+          <li><a href="nossa-historia.html">Sobre a Decolar</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="contato.html" class="active" aria-current="page">Fale Conosco</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions" id="header-actions">
+        <a href="index.html#representante" class="btn btn-primary">Seja um Representante Decolar</a>
+        <a href="simulacao.html" class="btn btn-secondary">Simule seu Consórcio</a>
+
+        <!-- Redes sociais: substituir os href="#" pelos links reais quando disponíveis -->
+        <div class="social-links" aria-label="Redes sociais da Decolar Consórcios">
+          <a href="#" class="social-link" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M13.5 9H16V6h-2.5C11.6 6 10 7.6 10 9.7V11H8v3h2v7h3v-7h2.4l.6-3H13V9.8c0-.5.4-.8.9-.8Z"></path>
+            </svg>
+          </a>
+          <a href="#" class="social-link" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+              <rect x="4" y="4" width="16" height="16" rx="4.5"></rect>
+              <circle cx="12" cy="12" r="3.3"></circle>
+              <circle cx="16.3" cy="7.7" r="0.6" fill="currentColor" stroke="none"></circle>
+            </svg>
+          </a>
+          <a href="https://www.linkedin.com/in/decolar-cons%C3%B3rcio-9899462ba/" class="social-link" aria-label="LinkedIn da Decolar Consórcios" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+              <rect x="4" y="4" width="16" height="16" rx="4.5"></rect>
+              <g transform="translate(12 12) scale(0.78) translate(-12 -12)">
+                <circle cx="8.7" cy="8.1" r="1.05" fill="currentColor" stroke="none"></circle>
+                <rect x="7.65" y="10.3" width="2.1" height="6.3" rx="1.05" fill="currentColor" stroke="none"></rect>
+                <path d="M11.55 16.6v-6.3h2.1v1.05c.55-.75 1.35-1.25 2.35-1.25 1.85 0 2.95 1.25 2.95 3.35v3.15h-2.1v-2.75c0-1.15-.45-1.85-1.5-1.85-.85 0-1.5.55-1.7 1.35v3.25Z" fill="currentColor" stroke="none"></path>
+              </g>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      </div>
+
+      <button type="button" class="nav-toggle" id="nav-toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="main-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+    </div>
+  </header>
+
+  <main id="conteudo-principal">
+
+    <!-- ====================================================================
+         HERO DE CONTATO
+         ==================================================================== -->
+    <section class="contact-hero">
+      <div class="container contact-hero-inner">
+        <span class="contact-hero-eyebrow">Fale com a Decolar</span>
+        <h1 class="contact-hero-title">Seu próximo passo começa com uma conversa.</h1>
+        <p class="contact-hero-lead">Se você quer conhecer melhor uma modalidade, continuar sua simulação, tirar dúvidas ou falar com nosso time, escolha o canal que fizer mais sentido para você.</p>
+
+        <div class="contact-hero-actions">
+          <!-- TODO: substituir pelo WhatsApp oficial -->
+          <a href="https://wa.me/5551999999999" class="btn btn-primary" target="_blank" rel="noopener">Falar pelo WhatsApp</a>
+          <a href="#canais" class="btn btn-secondary">Ver formas de contato</a>
+        </div>
+
+        <p class="contact-hero-note">Atendimento humano • Suporte comercial • Atuação nacional</p>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         ESCOLHA COMO FALAR COM A DECOLAR
+         ==================================================================== -->
+    <section class="contact-channels" id="canais">
+      <div class="container">
+
+        <div class="contact-section-head reveal-on-scroll">
+          <h2 class="contact-section-title">Como você prefere falar com a gente?</h2>
+          <p class="contact-section-lead">Escolha o canal mais conveniente para falar com nosso time.</p>
+        </div>
+
+        <div class="contact-channel-grid">
+
+          <article class="contact-channel reveal-on-scroll">
+            <span class="contact-channel-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 11.5a8.38 8.38 0 0 1-4.5 7.45 8.5 8.5 0 0 1-8.9-.75L3 20l1.9-4.4a8.38 8.38 0 0 1-.9-3.6 8.5 8.5 0 0 1 8.5-8.5h.1a8.5 8.5 0 0 1 8.4 8z"></path>
+              </svg>
+            </span>
+            <h3 class="contact-channel-title">WhatsApp</h3>
+            <p class="contact-channel-text">Fale diretamente com nosso atendimento comercial para tirar dúvidas, conhecer modalidades ou continuar uma simulação.</p>
+            <p class="contact-channel-data"><!-- TODO: substituir pelo WhatsApp oficial -->(51) 99999-9999</p>
+            <a href="https://wa.me/5551999999999" class="contact-channel-link" target="_blank" rel="noopener">Falar no WhatsApp <span aria-hidden="true">→</span></a>
+          </article>
+
+          <article class="contact-channel reveal-on-scroll">
+            <span class="contact-channel-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="5" width="18" height="14" rx="2.2"></rect>
+                <path d="M4 7.2l8 5.8 8-5.8"></path>
+              </svg>
+            </span>
+            <h3 class="contact-channel-title">E-mail</h3>
+            <p class="contact-channel-text">Para dúvidas e solicitações gerais, fale com nosso atendimento.</p>
+            <p class="contact-channel-data">atendimento@decolarconsorcios.com.br</p>
+            <a href="mailto:atendimento@decolarconsorcios.com.br" class="contact-channel-link js-email-trigger" data-email="atendimento@decolarconsorcios.com.br">Enviar e-mail <span aria-hidden="true">→</span></a>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         FORMULÁRIO / PRÉ-ATENDIMENTO
+         (client-side apenas: monta o link de WhatsApp em contato.js;
+         não existe backend/API/CRM para este formulário)
+         ==================================================================== -->
+    <section class="contact-form-section">
+      <div class="container">
+
+        <div class="contact-section-head reveal-on-scroll">
+          <h2 class="contact-section-title">Conte pra gente o que você procura.</h2>
+          <p class="contact-section-lead">Preencha algumas informações e deixe seu atendimento mais direcionado.</p>
+        </div>
+
+        <form class="contact-form reveal-on-scroll" id="contact-form" novalidate>
+
+          <div class="contact-form-grid">
+
+            <div class="form-field">
+              <label for="contact-nome">Nome completo</label>
+              <input type="text" id="contact-nome" name="nome" required autocomplete="name">
+              <span class="contact-form-error" id="contact-nome-error" role="alert"></span>
+            </div>
+
+            <div class="form-field">
+              <label for="contact-telefone">Telefone / WhatsApp</label>
+              <input type="tel" id="contact-telefone" name="telefone" required autocomplete="tel">
+              <span class="contact-form-error" id="contact-telefone-error" role="alert"></span>
+            </div>
+
+            <div class="form-field">
+              <label for="contact-email">E-mail <span class="contact-form-optional">(opcional)</span></label>
+              <input type="email" id="contact-email" name="email" autocomplete="email">
+            </div>
+
+            <div class="form-field">
+              <label for="contact-cidade">Cidade</label>
+              <input type="text" id="contact-cidade" name="cidade" required autocomplete="address-level2">
+              <span class="contact-form-error" id="contact-cidade-error" role="alert"></span>
+            </div>
+
+            <div class="form-field">
+              <label for="contact-estado">Estado</label>
+              <select id="contact-estado" name="estado" required autocomplete="address-level1">
+                <option value="">Selecione</option>
+                <option value="AC">AC — Acre</option>
+                <option value="AL">AL — Alagoas</option>
+                <option value="AP">AP — Amapá</option>
+                <option value="AM">AM — Amazonas</option>
+                <option value="BA">BA — Bahia</option>
+                <option value="CE">CE — Ceará</option>
+                <option value="DF">DF — Distrito Federal</option>
+                <option value="ES">ES — Espírito Santo</option>
+                <option value="GO">GO — Goiás</option>
+                <option value="MA">MA — Maranhão</option>
+                <option value="MT">MT — Mato Grosso</option>
+                <option value="MS">MS — Mato Grosso do Sul</option>
+                <option value="MG">MG — Minas Gerais</option>
+                <option value="PA">PA — Pará</option>
+                <option value="PB">PB — Paraíba</option>
+                <option value="PR">PR — Paraná</option>
+                <option value="PE">PE — Pernambuco</option>
+                <option value="PI">PI — Piauí</option>
+                <option value="RJ">RJ — Rio de Janeiro</option>
+                <option value="RN">RN — Rio Grande do Norte</option>
+                <option value="RS">RS — Rio Grande do Sul</option>
+                <option value="RO">RO — Rondônia</option>
+                <option value="RR">RR — Roraima</option>
+                <option value="SC">SC — Santa Catarina</option>
+                <option value="SP">SP — São Paulo</option>
+                <option value="SE">SE — Sergipe</option>
+                <option value="TO">TO — Tocantins</option>
+              </select>
+              <span class="contact-form-error" id="contact-estado-error" role="alert"></span>
+            </div>
+
+            <div class="form-field">
+              <label for="contact-assunto">O que você procura?</label>
+              <select id="contact-assunto" name="assunto" required>
+                <option value="">Selecione</option>
+                <option value="Consórcio de Imóveis">Consórcio de Imóveis</option>
+                <option value="Consórcio de Veículos">Consórcio de Veículos</option>
+                <option value="Consórcio de Pesados">Consórcio de Pesados</option>
+                <option value="Quero entender como funciona">Quero entender como funciona</option>
+                <option value="Quero continuar minha simulação">Quero continuar minha simulação</option>
+                <option value="Quero ser representante">Quero ser representante</option>
+                <option value="Atendimento geral">Atendimento geral</option>
+              </select>
+              <span class="contact-form-error" id="contact-assunto-error" role="alert"></span>
+            </div>
+
+            <div class="form-field contact-form-field--full">
+              <label for="contact-mensagem">Mensagem</label>
+              <textarea id="contact-mensagem" name="mensagem" rows="4" required placeholder="Conte rapidamente como podemos ajudar."></textarea>
+              <span class="contact-form-error" id="contact-mensagem-error" role="alert"></span>
+            </div>
+
+          </div>
+
+          <div class="consent-field">
+            <input type="checkbox" id="contact-consentimento" name="consentimento" required>
+            <label for="contact-consentimento">Autorizo o contato da Decolar pelos dados informados.</label>
+          </div>
+          <span class="contact-form-error" id="contact-consentimento-error" role="alert"></span>
+
+          <button type="submit" class="btn-submit">Continuar pelo WhatsApp</button>
+
+        </form>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         CENTRAL DE E-MAILS
+         ==================================================================== -->
+    <section class="contact-emails">
+      <div class="container">
+
+        <div class="contact-section-head reveal-on-scroll">
+          <h2 class="contact-section-title">Cada assunto no canal certo.</h2>
+          <p class="contact-section-lead">Escolha o e-mail mais adequado para sua necessidade.</p>
+        </div>
+
+        <div class="contact-email-grid">
+
+          <article class="contact-email-item reveal-on-scroll">
+            <span class="contact-email-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="5" width="18" height="14" rx="2.2"></rect>
+                <path d="M4 7.2l8 5.8 8-5.8"></path>
+              </svg>
+            </span>
+            <h3 class="contact-email-label">Atendimento</h3>
+            <p class="contact-email-address">atendimento@decolarconsorcios.com.br</p>
+            <p class="contact-email-text">Dúvidas sobre consórcios, atendimento comercial, modalidades, simulações e orientações gerais.</p>
+            <a href="mailto:atendimento@decolarconsorcios.com.br" class="contact-email-link js-email-trigger" data-email="atendimento@decolarconsorcios.com.br">Enviar e-mail <span aria-hidden="true">→</span></a>
+          </article>
+
+          <article class="contact-email-item reveal-on-scroll">
+            <span class="contact-email-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="5" width="18" height="14" rx="2.2"></rect>
+                <path d="M4 7.2l8 5.8 8-5.8"></path>
+              </svg>
+            </span>
+            <h3 class="contact-email-label">Contato institucional</h3>
+            <p class="contact-email-address">contato@decolarconsorcios.com.br</p>
+            <p class="contact-email-text">Assuntos gerais relacionados à Decolar Consórcios e contatos institucionais.</p>
+            <a href="mailto:contato@decolarconsorcios.com.br" class="contact-email-link js-email-trigger" data-email="contato@decolarconsorcios.com.br">Enviar e-mail <span aria-hidden="true">→</span></a>
+          </article>
+
+          <article class="contact-email-item contact-email-item--ombudsman reveal-on-scroll">
+            <span class="contact-email-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 4.5h16v11H9l-4 4v-4H4z"></path>
+              </svg>
+            </span>
+            <h3 class="contact-email-label">Ouvidoria</h3>
+            <p class="contact-email-address">ouvidoria@decolarconsorcios.com.br</p>
+            <p class="contact-email-text">Canal destinado a manifestações, reclamações, sugestões ou situações que necessitem de atenção específica.</p>
+            <span class="contact-email-note">Canal de escuta e manifestação.</span>
+            <a href="mailto:ouvidoria@decolarconsorcios.com.br" class="contact-email-link js-email-trigger" data-email="ouvidoria@decolarconsorcios.com.br">Falar com a Ouvidoria <span aria-hidden="true">→</span></a>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SEGURANÇA DOS CANAIS — bloco curto (apenas um alerta discreto,
+         sem repetir a extensão do bloco .trust já existente na Home)
+         ==================================================================== -->
+    <section class="contact-security">
+      <div class="container contact-security-inner reveal-on-scroll">
+        <h2 class="contact-security-title">Fale sempre pelos canais oficiais da Decolar.</h2>
+        <p class="contact-security-lead">Antes de compartilhar dados ou documentos, confirme se o contato está sendo feito por um dos canais oficiais listados nesta página.</p>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         FAQ RÁPIDO DE CONTATO
+         ==================================================================== -->
+    <section class="contact-faq">
+      <div class="container">
+
+        <div class="contact-section-head reveal-on-scroll">
+          <span class="contact-section-eyebrow">Dúvidas rápidas</span>
+          <h2 class="contact-section-title">Perguntas frequentes sobre contato.</h2>
+        </div>
+
+        <div class="contact-accordion reveal-on-scroll">
+
+          <div class="contact-accordion-item">
+            <button type="button" class="contact-accordion-trigger" aria-expanded="false" aria-controls="contact-faq-1" id="contact-faq-1-trigger">
+              Qual o melhor canal para falar com a Decolar?
+              <svg class="contact-accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"></path></svg>
+            </button>
+            <div class="contact-accordion-panel" id="contact-faq-1" role="region" aria-labelledby="contact-faq-1-trigger">
+              <p>Para dúvidas e atendimento comercial, utilize o WhatsApp ou o e-mail atendimento@decolarconsorcios.com.br.</p>
+            </div>
+          </div>
+
+          <div class="contact-accordion-item">
+            <button type="button" class="contact-accordion-trigger" aria-expanded="false" aria-controls="contact-faq-2" id="contact-faq-2-trigger">
+              Como faço para começar uma simulação?
+              <svg class="contact-accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"></path></svg>
+            </button>
+            <div class="contact-accordion-panel" id="contact-faq-2" role="region" aria-labelledby="contact-faq-2-trigger">
+              <p>Escolha uma modalidade no simulador da Home ou fale com nosso atendimento pelo WhatsApp para começar.</p>
+            </div>
+          </div>
+
+          <div class="contact-accordion-item">
+            <button type="button" class="contact-accordion-trigger" aria-expanded="false" aria-controls="contact-faq-3" id="contact-faq-3-trigger">
+              Já sou cliente. Como entro em contato?
+              <svg class="contact-accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"></path></svg>
+            </button>
+            <div class="contact-accordion-panel" id="contact-faq-3" role="region" aria-labelledby="contact-faq-3-trigger">
+              <p>Utilize o WhatsApp ou o e-mail atendimento@decolarconsorcios.com.br e informe seus dados para que possamos localizar seu atendimento.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         ENCERRAMENTO — discreto, sem repetir o CTA gigante da Home
+         ==================================================================== -->
+    <section class="contact-closing">
+      <div class="container contact-closing-inner reveal-on-scroll">
+        <h2 class="contact-closing-title">Ainda precisa de ajuda?</h2>
+        <p class="contact-closing-lead">Escolha um dos nossos canais e fale com a equipe Decolar.</p>
+        <!-- TODO: substituir pelo WhatsApp oficial -->
+        <a href="https://wa.me/5551999999999" class="btn btn-primary" target="_blank" rel="noopener">Falar pelo WhatsApp</a>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         MODAL REUTILIZÁVEL DE ENVIO DE E-MAIL
+         ==================================================================== -->
+    <div class="contact-email-modal" id="email-modal" aria-hidden="true">
+      <div class="contact-email-modal-overlay" data-email-modal-overlay></div>
+      <div class="contact-email-modal-dialog" role="dialog" aria-modal="true" aria-labelledby="email-modal-title" tabindex="-1">
+        <button type="button" class="contact-email-modal-close" data-email-modal-close aria-label="Fechar">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7l10 10M17 7L7 17"></path></svg>
+        </button>
+
+        <h2 class="contact-email-modal-title" id="email-modal-title">Como deseja enviar seu e-mail?</h2>
+        <p class="contact-email-modal-lead">Escolha a plataforma que você utiliza. O destinatário já será preenchido automaticamente.</p>
+
+        <div class="contact-email-modal-recipient">
+          <span class="contact-email-modal-recipient-label">Destinatário</span>
+          <div class="contact-email-modal-address-row">
+            <span class="contact-email-modal-address" id="email-modal-address">atendimento@decolarconsorcios.com.br</span>
+            <button type="button" class="contact-email-modal-copy" id="email-modal-copy" data-default-label="Copiar e-mail" data-copied-label="E-mail copiado!">Copiar e-mail</button>
+          </div>
+        </div>
+
+        <div class="contact-email-modal-options">
+          <span class="contact-email-modal-options-label">Escolha sua plataforma</span>
+
+          <a href="#" class="contact-email-modal-option" id="email-modal-gmail" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="M4 6.5l8 6 8-6"></path></svg>
+            Gmail
+          </a>
+
+          <a href="#" class="contact-email-modal-option" id="email-modal-outlook" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="M4 6.5l8 6 8-6"></path></svg>
+            Outlook / Hotmail
+          </a>
+
+          <a href="#" class="contact-email-modal-option" id="email-modal-yahoo" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="M4 6.5l8 6 8-6"></path></svg>
+            Yahoo Mail
+          </a>
+
+          <a href="https://www.icloud.com/mail/" class="contact-email-modal-option" id="email-modal-icloud" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="M4 6.5l8 6 8-6"></path></svg>
+            iCloud Mail
+          </a>
+
+          <a href="#" class="contact-email-modal-option" id="email-modal-mailto">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="M4 6.5l8 6 8-6"></path></svg>
+            Aplicativo de e-mail
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Rodapé Institucional (mesmo padrão mínimo das demais páginas internas) -->
+  <footer class="contact-footer">
+    <div class="container contact-footer-inner">
+      <p>© 2026 Decolar Consórcios. Todos os direitos reservados.</p>
+      <div class="contact-footer-links">
+        <a href="index.html#inicio">Início</a>
+        <a href="index.html#consorcios">Consórcios</a>
+        <a href="como-funciona.html">Como Funciona</a>
+        <a href="blog.html">Blog</a>
+        <a href="contato.html">Contato</a>
+      </div>
+      <div class="site-footer-credit">
+        <span>Site desenvolvido por</span>
+        <img src="assets/images/ROQUE ADS.png" alt="Roque Ads">
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script src="contato.js"></script>
+</body>
+</html>
